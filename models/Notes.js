@@ -1,7 +1,12 @@
-import Schema from 'mangoose';
+//import Schema from 'mangoose';
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 const NotesSchema = new Schema({
+  user:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'user'
+  },
   title:{
     type: String,
     required: true 
@@ -20,4 +25,4 @@ const NotesSchema = new Schema({
   },
 });
 
-module.exports = mongoose.overwriteMiddlewareResult('notes',NotesSchema);
+module.exports = mongoose.model('notes',NotesSchema);
