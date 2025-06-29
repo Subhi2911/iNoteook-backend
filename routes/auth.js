@@ -5,9 +5,12 @@ const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const fetchuser = require('../middleware/fetchuser');
+require('dotenv').config({ path: '.env.local' });
 
 
-const JWT_SECRET = 'Baibhavisd$umbo';
+
+const JWT_SECRET = process.env.JWT_SECRET;
+console.log(JWT_SECRET);
 
 // ROUTE 1: Create a user using POST "/api/auth/createuser"
 router.post('/createuser', [
