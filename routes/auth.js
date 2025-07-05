@@ -12,6 +12,7 @@ console.log("secret",JWT_SECRET)
 
 // ROUTE 1: Create a user using POST "/api/auth/createuser"
 router.post('/createuser', [
+  body('imageurl'),
   body('name', 'Enter a valid name').isLength({ min: 3 }),
   body('email', 'Enter a valid email').isEmail(),
   body('password', 'Password must be at least 8 characters').isLength({ min: 8 }),
@@ -34,6 +35,7 @@ router.post('/createuser', [
     const secPass = await bcrypt.hash(req.body.password, salt);
 
     user = await User.create({
+      imageurl:req.body.imageurl,
       name: req.body.name,
       email: req.body.email,
       password: secPass
@@ -111,5 +113,8 @@ router.post('/getuser', fetchuser, async (req, res) => {
         res.status(500).send("Internal server error");
     }
 });
+
+
+
 
 module.exports = router;
