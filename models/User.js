@@ -4,10 +4,6 @@ const mongoose = require('mongoose');
 
 
 const UserSchema = mongoose.Schema({
-  imageurl:{
-    type:String,
-    default: "https://i.postimg.cc/J4rjc7qN/defaultimageurl.png"
-  },
   name:{
     type: String,
     required: true 
