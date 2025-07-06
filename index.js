@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000
 
 app.use(cors({
   origin: ['http://localhost:3000', 
-    // 'https://inotebook-save-your-notes.onrender.com'
+     'https://inotebook-save-your-notes.onrender.com'
     ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
